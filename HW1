@@ -1,0 +1,61 @@
+public class Main {
+    public static void main(String[] args) {};
+        //Задание 2
+        public static void Z1 (){
+            boolean q = true;
+            byte w = 16;
+            char e = 'x';
+            short r = -120;
+            int t = 1565;
+            long y = 56743L;
+            float u = 564.4f;
+            double i = 7456.67;
+        }
+        //Задание 3
+        public static float Z3( float a,float b,float c,float d) {
+            return a * (b + (c / d));
+        }
+        //Задание 4
+        public static boolean Z4 ( int x, int y){
+            return (x + y) >= 10 && (x + y) <= 20;
+        }
+        //Задание 5
+        public static void plusormin ( int num){
+            if (num >= 0) {
+                System.out.println("Положительное");
+            } else {
+                System.out.println("Отрицательное");
+            }
+        }
+        //Задание 6
+        public static boolean Z6 ( int num){
+            return num < 0;
+        }
+        //Задание 7
+        public static void Z7 (String name){
+            System.out.println("Привет, " + name);
+        }
+        //Задание 8*
+        public static void yearVesOrNot (int year){
+            if (year % 4 == 0) {
+                if (year % 100 == 0) {
+                    if (year % 400 == 0) {
+                        System.out.println("Год високосный");
+                    } else {
+                        System.out.println("Год не високосный");
+                    }
+                } else {
+                    System.out.println("Год високосный");
+                }
+            } else {
+                System.out.println("Год не високосный");
+            }
+        }
+        //Задание 8* Второй вариант
+        public static void yearVesOrNot2 (int year){
+            if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)){
+                System.out.println("Год високосный");
+            } else {System.out.println("Год не високосный");
+            }
+        }
+    }
