@@ -1,0 +1,61 @@
+
+        //Задание 1
+        int[] a = {1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 0) {
+                a[i] = 1;
+            } else {
+                a[i] = 0;
+            }
+        }
+        //Задание 2
+        int[] b = new int[8];
+        for (int z = 0; z < b.length; z++) {
+            b[z] = 3 * z;
+        }
+        //Задание 3
+        int[] c = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        for (int x = 0; x < c.length; x++) {
+            if (c[x] > 6) {
+                c[x] = 2 * c[x];
+            }
+        }
+        //Задание 4
+        int[][] d = new int[5][5];
+        for (int i = 0; i < d.length; i++)
+            for (int j = 0; j < d.length; j++)
+                if (i == j | d[i].length - 1 - i == j) {
+                    d[i][j] = 1;
+                }
+        //Задание 5
+        int[] e = {1, 4, 6, 2, 8, 5, 3, 7, 2};
+        int max = 0;
+        int min = e.length;
+        for (int i = 0; i < e.length; i++) {
+            if (e[i] > max) {
+                max = e[i];
+            }
+            if (e[i] < min) {
+                min = e[i];
+            }
+        }
+        //Задание 6
+        public static boolean balance ( int[] arr);
+        {
+            int Sum1, Sum2;
+            for (int i = 0; i < arr.length + 1; i++) {
+                Sum1 = 0;
+                Sum2 = 0;
+                for (int j = 0; j < i; j++) {
+                    Sum1 += arr[j];
+                }
+                for (int j = i; j < arr.length; j++) {
+                    Sum2 += arr[j];
+                    if (Sum1 ==Sum2) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
