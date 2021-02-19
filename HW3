@@ -1,0 +1,29 @@
+package geekbrains;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Number(); }
+    private static void Number() {
+        Scanner in = new Scanner(System.in);
+        int a;
+        int n = (int)(Math.random()*10);
+        System.out.println("Компьютер загадал число от 0 до 9, угадайте это число с 3 попыток.");
+        for (int i = 0; i < 3; i++){
+            System.out.println("Попытка " + (i+1) + ": ");
+            a = in.nextInt();
+            if (a < n) {
+                System.out.println("Число больше!");
+            } else
+            if (a > n) {System.out.println("Число меньше!");}
+            else {System.out.println("Вы выйграли!");
+                System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+                a = in.nextInt();
+                if (a == 1) Number(); else {break;}
+            }
+        }
+        System.out.println("Вы проиграли!");
+        System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+        a = in.nextInt();
+        if (a == 1) Number();
+    }
+}
