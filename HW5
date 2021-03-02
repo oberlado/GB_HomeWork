@@ -1,0 +1,38 @@
+package geekbrains;
+
+public class Main {
+    public static void main(String[] args) {
+        Employ[] EArr = new Employ[5];
+        EArr[0] = new Employ("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 30000, 20);
+        EArr[1] = new Employ("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 40000, 20);
+        EArr[2] = new Employ("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 50000, 41);
+        EArr[3] = new Employ("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 60000, 40);
+        EArr[4] = new Employ("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 70000, 50);
+        for (Employ item : EArr) {
+            if (item.Age() >= 40) item.Input();
+        }
+    }
+}
+    class Employ {
+        private String FullName;
+        private String post;
+        private String email;
+        private String tel;
+        private double salary;
+        private int age;
+
+        Employ(String FullName, String post, String email, String tel, double salary, int age) {
+            this.FullName = FullName;
+            this.post = post;
+            this.email = email;
+            this.tel = tel;
+            this.salary = salary;
+            this.age = age;
+        }
+        int Age() {
+            return age;
+        }
+        void Input() {
+            System.out.println("ФИО:"+FullName + " Должность: " + post + " Почта: " + email + " Телефон: " + tel + " Зарплата: " + salary + " Возраст: " + age);
+        }
+    }
