@@ -1,0 +1,74 @@
+import java.awt.event.MouseEvent;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class Main {
+
+    public static void main(String[] args) {
+        Player firstPlayer = new Player("Первый", "O");
+        Player secondPlayer = new Player("Второй", "X");
+        Listener gameplay = new Listener(firstPlayer, secondPlayer);
+        MyFrame frame = new MyFrame(gameplay);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
+
+class MyFrame extends JFrame {
+    public MyFrame(Listener gameplay) {
+        setTitle("Xor0");
+        setSize(500, 500);
+        Container c = getContentPane();
+        c.setLayout(new GridLayout(3, 3));
+
+        for (int i = 0; i < 9; i++) {
+            JButton b = new JButton();
+            b.addMouseListener(gameplay);
+            c.add(b);
+        }
+    }
+}
+
+class Listener extends MouseAdapter {
+    private int actions = 0;
+    private boolean isFirstPlayer = true;
+    Player firstPlayer;
+    Player secondPlayer;
+
+    public Listener(Player firstPlayer, Player secondPlayer) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer;
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        JButton pressedBtn = (JButton) e.getSource();
+        if (actions > 8) {
+            return;
+        }
+        if (!pressedBtn.isEnabled()) {
+            System.out.println("Занято");
+            return;
+        }
+        if (isFirstPlayer) {
+            System.out.println("Ходит " + firstPlayer.name);
+            pressedBtn.setText(firstPlayer.dot);
+        } else {
+            System.out.println("Ходит " +secondPlayer.name);
+            pressedBtn.setText(secondPlayer.dot);
+        }
+        pressedBtn.setEnabled(false);
+        if (++actions > 8)
+            System.out.println("Игра закончена");
+        isFirstPlayer = !isFirstPlayer;
+    }
+}
+
+class Player {
+    String dot;
+    String name;
+
+    public Player(String name, String dot) {
+        this.name = name;
+        this.dot = dot;
+    }
+}
